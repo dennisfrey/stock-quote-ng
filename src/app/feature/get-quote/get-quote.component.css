@@ -1,0 +1,37 @@
+.getquote{
+    text-align:center
+}
+input {
+    border-radius:7px
+}
+.stock{
+    text-align:center;
+}
+.detailedquote{
+    border-style: solid;
+    text-align:left;
+    margin: auto;
+    width: 40%;
+    border-radius:7px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    
+}
+.symbol{
+    font-size: 70px;
+    font-weight: bold;
+    font-family: helvetica;
+}
+.price{
+    font-size: 60px;
+    font-family: helvetica;
+}
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
