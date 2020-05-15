@@ -8,6 +8,8 @@ import { GetQuoteService } from 'src/app/service/get-quote.service';
 })
 export class GetQuoteComponent implements OnInit {
   stock: string = "";
+  displaySean: boolean  = false;
+  displayTrevor: boolean = false;
 
   // Detailed Quote Properties
   displayQuote: boolean = false;
@@ -42,8 +44,24 @@ export class GetQuoteComponent implements OnInit {
   }
 
   getQuote(): void {
+    if (this.stock == "sean" || this.stock == "SEAN") {
+      this.displaySean = true;
+      this.displayQuote = false;
+      this.displayHistory = false;
+      this.displayTrevor = false;
+    }
+    else if(this.stock == "trev" || this.stock == "TREV"){
+      this.displayTrevor = true;
+      this.displaySean = false;
+      this.displayQuote = false;
+      this.displayHistory = false;
+    }
+    else {
+    this.symbol = "";
     this.displayQuote = true;
     this.displayHistory = false;
+    this.displayTrevor = false;
+    this.displaySean = false;
     this.getQuoteSvc.get(this.stock).subscribe(jr => {
         console.log(jr);
         let quote = jr["Global Quote"];
@@ -58,24 +76,29 @@ export class GetQuoteComponent implements OnInit {
         this.change = quote["09. change"];
         this.changePercent = quote["10. change percent"];
       });
+    }
   }
 
   getPriceHistory(): void {
+    this.symbolHistory = "";
     this.displayQuote = false;
     this.displayHistory = true;
+    this.displayTrevor = false;
+    this.displaySean = false;
     this.getQuoteSvc.getDaily(this.stock).subscribe( jr => {
       console.log(jr);
       this.symbolHistory = jr["Meta Data"]["2. Symbol"];
-      this.price1 = jr["Time Series (Daily)"]["2020-05-13"]["4. close"];
-      this.price2 = jr["Time Series (Daily)"]["2020-05-12"]["4. close"];
-      this.price3 = jr["Time Series (Daily)"]["2020-05-11"]["4. close"];
-      this.price4 = jr["Time Series (Daily)"]["2020-05-08"]["4. close"];
-      this.price5 = jr["Time Series (Daily)"]["2020-05-07"]["4. close"];
-      this.price6 = jr["Time Series (Daily)"]["2020-05-06"]["4. close"];
-      this.price7 = jr["Time Series (Daily)"]["2020-05-05"]["4. close"];
-      this.price8 = jr["Time Series (Daily)"]["2020-05-04"]["4. close"];
-      this.price9 = jr["Time Series (Daily)"]["2020-05-01"]["4. close"];
-      this.price10 = jr["Time Series (Daily)"]["2020-04-30"]["4. close"];
+      this.price1 = jr["Time Series (Daily)"]["2020-05-14"]["4. close"];
+      this.price2 = jr["Time Series (Daily)"]["2020-05-13"]["4. close"];
+      this.price3 = jr["Time Series (Daily)"]["2020-05-12"]["4. close"];
+      this.price4 = jr["Time Series (Daily)"]["2020-05-11"]["4. close"];
+      this.price5 = jr["Time Series (Daily)"]["2020-05-08"]["4. close"];
+      this.price6 = jr["Time Series (Daily)"]["2020-05-07"]["4. close"];
+      this.price7 = jr["Time Series (Daily)"]["2020-05-06"]["4. close"];
+      this.price8 = jr["Time Series (Daily)"]["2020-05-05"]["4. close"];
+      this.price9 = jr["Time Series (Daily)"]["2020-05-04"]["4. close"];
+      this.price10 = jr["Time Series (Daily)"]["2020-05-01"]["4. close"];
+
      });
   }
 

@@ -1,4 +1,5 @@
 <br>
+<br>
 <div class="getquote">
     <input [(ngModel)]="stock" type="text" placeholder="Enter Symbol">
     <button class="btn btn-success" (click)='getQuote()'>Get Quote</button>
@@ -8,108 +9,126 @@
 <br>
 
 <div *ngIf='displayQuote'>
-    <div class="stock">
-        &emsp;<span class="symbol">{{ symbol }}</span>&nbsp;
-        <span class="price">{{price | currency}}</span>
-    </div>
-    <div class="detailedquote" style="background-color: lightgray">
-        <span class="page-title font-weight-bold font-italic">[Detailed Quote]</span>
-        <br>
-        <table class="table table-sm table-striped">
-            <tbody>
-                <tr>
-                    <td>Change:
-                        <span [ngClass]="{
+    <div *ngIf='symbol'>
+        <div class="stock">
+            &emsp;<span class="symbol">{{ symbol }}</span>&nbsp;
+            <span class="price">{{price | currency}}</span>
+        </div>
+        <div class="detailedquote" style="background-color: lightgray">
+            <span class="page-title font-weight-bold font-italic">[Detailed Quote]</span>
+            <br>
+            <table class="table table-sm table-striped">
+                <tbody>
+                    <tr>
+                        <td>Change:
+                            <span [ngClass]="{
                                 'positive' : change > 0,
                                 'negative' : change < 0 }">
-                            {{change}}
-                        </span>
-                    </td>
-                    <td>Change Percent:
-                        <span [ngClass]="{
+                                {{change}}
+                            </span>
+                        </td>
+                        <td>Change Percent:
+                            <span [ngClass]="{
                                 'positive' : change > 0,
                                 'negative' : change < 0 }">
-                            {{changePercent}}
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>High: {{high | currency}} </td>
-                    <td>Low: {{low | currency}}</td>
-                </tr>
-                <tr>
-                    <td>Open: {{open | currency}}</td>
-                    <td> Previous Close {{previousClose | currency}}</td>
-                </tr>
-                <tr>
-                    <td>Volume: {{volume}}</td>
-                    <td>Latest Trading Day: {{latestTradingDay}}</td>
-                </tr>
+                                {{changePercent}}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>High: {{high | currency}} </td>
+                        <td>Low: {{low | currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>Open: {{open | currency}}</td>
+                        <td> Previous Close {{previousClose | currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>Volume: {{volume}}</td>
+                        <td>Latest Trading Day: {{latestTradingDay}}</td>
+                    </tr>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
+        </div>
     </div>
 </div>
 
 <div *ngIf='displayHistory'>
-    <div class="stock">
-        &emsp;<span class="symbol">{{ symbolHistory | uppercase }}</span>&nbsp;
-        <span class="price">{{price1 | currency}}</span>
-    </div>
-    <div class="detailedquote" style="background-color: lightgray">
-        <span class="page-title font-weight-bold font-italic">[Price History]</span>
-        <br>
-        <table class="table table-sm table-striped">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Closing Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>05/13/2020</td>
-                    <td>{{price1 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/12/2020</td>
-                    <td>{{price2 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/11/2020</td>
-                    <td>{{price3 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/08/2020</td>
-                    <td>{{price4 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/07/2020</td>
-                    <td>{{price5 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/06/2020</td>
-                    <td>{{price6 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/05/2020</td>
-                    <td>{{price7 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/04/2020</td>
-                    <td>{{price8 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>05/01/2020</td>
-                    <td>{{price9 |currency}}</td>
-                </tr>
-                <tr>
-                    <td>04/30/2020</td>
-                    <td>{{price10 |currency}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div *ngIf='symbolHistory'>
+        <div class="stock">
+            &emsp;<span class="symbol">{{ symbolHistory | uppercase }}</span>&nbsp;
+            <span class="price">{{price1 | currency}}</span>
+        </div>
+        <div class="detailedquote" style="background-color: lightgray">
+            <span class="page-title font-weight-bold font-italic">[Price History]</span>
+            <br>
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Closing Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>05/14/2020</td>
+                        <td>{{price1 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/13/2020</td>
+                        <td>{{price2 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/12/2020</td>
+                        <td>{{price3 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/11/2020</td>
+                        <td>{{price4 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/08/2020</td>
+                        <td>{{price5 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/07/2020</td>
+                        <td>{{price6 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/06/2020</td>
+                        <td>{{price7 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/05/2020</td>
+                        <td>{{price8 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/04/2020</td>
+                        <td>{{price9 |currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>05/01/2020</td>
+                        <td>{{price10 |currency}}</td>
+                    </tr>
 
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
+<div *ngIf='displaySean'>
+    <div class="stock">
+        &emsp;<span class="symbol">SEAN</span>&nbsp;
+        <span class="price" font-style="italic"><i>PRICELESS</i></span>
+    </div>
+    <img src="assets/sean.png" alt="Sean" class="sean">
+</div>
+<div *ngIf='displayTrevor'>
+    <div class="stock">
+        &emsp;<span class="symbol">TREV</span>&nbsp;
+        <span class="price" font-style:italic><i>PRICELESS</i></span>
+    </div>
+    <img src="assets/trevor-halloween.jpg" alt="Trevor" class="trevor">
 </div>
