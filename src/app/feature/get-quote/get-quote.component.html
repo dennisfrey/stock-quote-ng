@@ -11,7 +11,7 @@
 <div *ngIf='displayQuote'>
     <div *ngIf='symbol'>
         <div class="stock">
-            &emsp;<span class="symbol">{{ symbol }}</span>&nbsp;
+            <span class="symbol">{{ symbol }}</span>&nbsp;
             <span class="price">{{price | currency}}</span>
         </div>
         <div class="detailedquote" style="background-color: lightgray">
@@ -58,7 +58,7 @@
 <div *ngIf='displayHistory'>
     <div *ngIf='symbolHistory'>
         <div class="stock">
-            &emsp;<span class="symbol">{{ symbolHistory | uppercase }}</span>&nbsp;
+            <span class="symbol">{{ symbolHistory | uppercase }}</span>&nbsp;
             <span class="price">{{price1 | currency}}</span>
         </div>
         <div class="detailedquote" style="background-color: lightgray">
@@ -120,14 +120,14 @@
 </div>
 <div *ngIf='displaySean'>
     <div class="stock">
-        &emsp;<span class="symbol">SEAN</span>&nbsp;
+        <span class="symbol">SEAN</span>&nbsp;
         <span class="price" font-style="italic"><i>PRICELESS</i></span>
     </div>
     <img src="assets/sean.png" alt="Sean" class="sean">
 </div>
 <div *ngIf='displayTrevor'>
     <div class="stock">
-        &emsp;<span class="symbol">TREV</span>&nbsp;
+        <span class="symbol">TREV</span>&nbsp;
         <span class="price" font-style:italic><i>PRICELESS</i></span>
     </div>
     <img src="assets/trevor-halloween.jpg" alt="Trevor" class="trevor">
